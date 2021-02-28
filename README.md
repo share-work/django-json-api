@@ -41,7 +41,7 @@ class Company(models.Model):
     deleted_at = models.DateTimeField(null=True, default=None)
 ```
 
-If you wish to consume it from microservice B, first add this insidde the aforementioned model's
+If you wish to consume it from microservice B, first add this inside the aforementioned model's
 definition:
 
 
