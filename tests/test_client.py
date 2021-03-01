@@ -1,3 +1,4 @@
+from unittest import mock
 from urllib.parse import urlencode
 
 import pytest
@@ -14,13 +15,20 @@ def mock_requests():
         yield mocker
 
 
+@pytest.fixture
+def mock_version():
+    with mock.patch("django_json_api.client.__version__") as mock_context:
+        mock_context.__str__ = lambda _: "0.1.2"
+        yield mock_context
+
+
 @override_settings(DJANGO_JSON_API_ADDITIONAL_HEADERS={})
-def test_jsonapi_client_session_headers():
+def test_jsonapi_client_session_headers(mock_version):
     del settings.DJANGO_JSON_API_ADDITIONAL_HEADERS
     client = JSONAPIClient()
     assert client.session.headers["Accept"] == "application/vnd.api+json"
     assert client.session.headers["Content-Type"] == "application/vnd.api+json"
-    assert client.session.headers["User-Agent"] == "JSONAPIClient/0.1.1"
+    assert client.session.headers["User-Agent"] == "JSONAPIClient/0.1.2"
 
     setattr(
         settings,
