@@ -51,9 +51,7 @@ def get_default_relation_serializer(json_api_model, only_fields=None):
                     )(read_only=True)
             return new_class
 
-    class _Serializer(
-        serializers.SparseFieldsetsMixin, serializers.Serializer, metaclass=_Metaclass
-    ):
+    class _Serializer(serializers.Serializer, metaclass=_Metaclass):
         class JSONAPIMeta:
             resource_name = json_api_model._meta.resource_type
             model = json_api_model
