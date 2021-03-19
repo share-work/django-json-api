@@ -1,6 +1,6 @@
 # Changelog
 
-## [T.B.D] - yyyy-mm-dd
+## [0.2.0] - 2021-03-19
 - **Quality of life**
   - Bumping the project's version through `VERSION` resource will not require changes in test cases
 - **Requirements Changes**
