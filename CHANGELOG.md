@@ -3,6 +3,9 @@
 ## [T.B.D] - yyyy-mm-dd
 - **Quality of life**
   - Bumping the project's version through `VERSION` resource will not require changes in test cases
+- **Requirements Changes**
+  - djangorestframework -> 3.12.2
+  - djangorestframework-jsonapi -> 4.1.0
 
 ## [0.1.1] -  2021-02-26
 - **Packaging Fix**
